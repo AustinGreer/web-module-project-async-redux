@@ -6,13 +6,14 @@ import styled from 'styled-components'
 const Pokemon = (props) => {
     const { fetchPokemon } = props;
     
-    useEffect(() => {
-        fetchPokemon();
-    }, [fetchPokemon])
+    const catchPokemon = (event) => {
+        event.preventDefault();
+        fetchPokemon()
+    }
     
     return (
         <div>
-            {/* <button>Catch All Gen 1 Pokemon Here!</button> */}
+            <button onClick={catchPokemon}>Catch All Gen 1 Pokemon Here!</button>
             {props.isLoading ? (
                 <h3>Loading...</h3>
             ) : null}
