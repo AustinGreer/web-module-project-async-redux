@@ -1,11 +1,20 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+;
 function SpellList (props) {
     return (
         <div>
-            <h1>Spells here</h1>
+            {props.spells.map(spell => (
+                <p key={spell.index}>{spell.name}</p>
+            ))}
         </div>
     )
 }
 
-export default SpellList
+const mapStateToProps = state => {
+    return {
+        spells: state.spells
+    }
+}
+
+export default connect(mapStateToProps, {})(SpellList)
