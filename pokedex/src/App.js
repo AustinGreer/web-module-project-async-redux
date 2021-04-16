@@ -1,7 +1,11 @@
+import Header from './components/Header';
+import PokeList from './components/PokeList'
+
 function App() {
   return (
     <div>
-      
+      <Header />
+      <PokeList />
     </div>
   );
 }

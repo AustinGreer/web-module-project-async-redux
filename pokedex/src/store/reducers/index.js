@@ -1,5 +1,15 @@
 const initialState = {
-    pokemon: [],
+    pokemon: [
+        {
+            name: 'bulbasaur'
+        },
+        {
+            name: 'charmander'
+        },
+        {
+            name: 'squirtle'
+        }
+    ],
     fetchStart: false,
     fetchSuccess: false,
     fetchFail: false
