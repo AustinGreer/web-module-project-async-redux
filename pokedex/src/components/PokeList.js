@@ -11,6 +11,7 @@ function PokeList(props) {
     
     return (
         <StyledPokeContainer>
+            {props.fetchStart ? <h2>Loading Pokedex...</h2> : null}
             {props.pokemon.map(poke => {
                 return <Pokemon key={poke.name} pokemon={poke} />
                 }
@@ -29,7 +30,10 @@ const StyledPokeContainer = styled.div`
 
 const mapStateToProps = state => {
     return {
-        pokemon: state.pokemon
+        pokemon: state.pokemon,
+        fetchStart: state.fetchStart,
+        fetchSuccess: state.fetchSuccess,
+        fetchFail: state.fetchFail
     }
 }
 

@@ -10,7 +10,6 @@ export const fetchPokemon = () => {
             axios
                 .get('https://pokeapi.co/api/v2/pokemon?limit=151')
                 .then(res => {
-                    console.log(res) // res.data.results
                     dispatch({type: POKE_FETCH_SUCCESS, payload: res.data.results})
                 })
                 .catch(err => {
