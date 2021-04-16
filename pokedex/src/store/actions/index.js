@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export const POKE_FETCH_START = 'POKE_FETCH_START';
-export const POKE_FETCH_SUCCESS = 'POKE_FETCH_SUCCESS'
+export const POKE_FETCH_SUCCESS = 'POKE_FETCH_SUCCESS';
+export const POKE_FETCH_FAILURE = 'POKE_FETCH_FAILURE'
 
 export const fetchPokemon = () => {
     return (dispatch) => {
@@ -13,7 +14,8 @@ export const fetchPokemon = () => {
                     dispatch({type: POKE_FETCH_SUCCESS, payload: res.data.results})
                 })
                 .catch(err => {
-                    console.log(err)
+                    console.log(err.message)
+                    dispatch({type: POKE_FETCH_FAILURE})
                 })
         )
     }

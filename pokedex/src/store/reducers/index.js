@@ -1,6 +1,7 @@
 import {
     POKE_FETCH_START, 
-    POKE_FETCH_SUCCESS
+    POKE_FETCH_SUCCESS,
+    POKE_FETCH_FAILURE
 } from '../actions'
 
 const initialState = {
@@ -25,6 +26,14 @@ export const reducer = (state = initialState, action) => {
                 fetchStart: false,
                 fetchSuccess: true,
                 fetchFail: false
+            })
+
+        case POKE_FETCH_FAILURE:
+            return ({
+                ...state,
+                fetchStart: false,
+                fetchSuccess: false,
+                fetchFail: true
             })
         
         default:
