@@ -19,4 +19,4 @@ const StyledPokemon = styled.div`
     background-color: white;
 `
 
-export default Pokemon
+export default Pokemon;

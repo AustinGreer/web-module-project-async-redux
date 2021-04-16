@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux';
+import {fetchPokemon} from '../store'
 import Pokemon from './Pokemon';
 import styled from 'styled-components';
 
 function PokeList(props) {
+    useEffect(() => {
+        props.fetchPokemon()
+    }, [])
+    
     return (
         <StyledPokeContainer>
             {props.pokemon.map(poke => {
@@ -28,4 +33,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(PokeList)
+export default connect(mapStateToProps, {fetchPokemon})(PokeList)
