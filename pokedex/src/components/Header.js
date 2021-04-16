@@ -10,14 +10,13 @@ function Header() {
 }
 
 const StyledHeader = styled.div`
-    padding: 4%;
     background: blue;
     color: yellow;
     display: flex;
     justify-content: center;
 
     h1{
-        
+        font-size: 5rem
     }
 `
 
