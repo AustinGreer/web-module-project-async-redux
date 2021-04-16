@@ -1,18 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import Pokemon from './Pokemon';
+import styled from 'styled-components';
 
 function PokeList(props) {
     return (
-        <div>
+        <StyledPokeContainer>
             {props.pokemon.map(poke => {
                 return <Pokemon key={poke.name} pokemon={poke} />
                 }
             )
             }
-        </div>
+        </StyledPokeContainer>
     )
 }
+
+const StyledPokeContainer = styled.div`
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+`
 
 const mapStateToProps = state => {
     return {
