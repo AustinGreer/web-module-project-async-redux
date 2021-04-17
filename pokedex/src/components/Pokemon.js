@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 
 function Pokemon(props) {
     const [pokeman, setPokeMan] = useState({})
@@ -10,28 +9,17 @@ function Pokemon(props) {
         .then (res => {
             setPokeMan(res.data)
         })
-    }, [])
+    }, [props.pokemon])
 
 
     return (
-        <StyledPokemon>
-            <img src={pokeman.sprites.front_default}></img>
+        <section className='pokemon'>
             <div>
-                <p>Id: {pokeman.id}</p>
-                <p>Name: {pokeman.name}</p>
+                <p># {pokeman.id}</p>
+                <p>{pokeman.name}</p>
             </div>
-        </StyledPokemon>
+        </section>
     )
 }
-
-const StyledPokemon = styled.div`
-    border: 2px solid white;
-    width: 20%;
-    border-radius: 15px;
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: white;
-`
 
 export default Pokemon;
